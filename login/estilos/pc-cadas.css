@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+main section {
+    flex: 0 1 350px;
+    height: 420px;
+    border-radius: 0px 8px 8px 0px;
+    padding: 10px;
+    transition: all 1s ease;
+}
+
+main > section#iimg {
+    display: block;
+    background: var(--cor-fundo) url(../imagens/imagem-de-fundo-cadastro.jpg) center no-repeat scroll;
+    background-size: cover;
+    border-radius: 8px 0px 0px 8px;
+}
+
+footer {
+    color: #1F2937;
+    font-size: .8em;
+    text-align: center;
+}
+
+footer > h2 {
+    padding: 5px;
+}
+
+footer > p > a {
+    color: #10B981;
+    text-decoration: none;
+}
+
+footer > p > a:hover {
+    color: var(--cor-botao);
+}

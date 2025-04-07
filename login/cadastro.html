@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="estilos/style.css">
+    <link rel="stylesheet" href="estilos/pc-cadas.css" media="screen and (min-width: 768px)">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@1" rel="stylesheet"/>
+</head>
+<body>
+    <main>
+        <section id="iimg">
+            <!-- Imagem de Fundo -->
+        </section>
+        <section>
+            <h1>Cadastre-se</h1>
+            <p>Aqui você pode criar sua conta. Lembre-se de seguir os padrões, o exemplo estará dentro da caixa!</p>
+            <form id="cadas" method="post" autocomplete="on">
+                <div>
+                    <label for="iusu">
+                        <span class="material-symbols-outlined">person</span>
+                    </label>
+                    <input type="email" name="usu" id="iusu" required autocomplete="email" minlength="10" maxlength="30" placeholder="exemplo123@gmail.com" pattern="^([a-zA-Z0-9]+)@([a-zA-Z]+)(\.[a-zA-Z]{2,})$">
+                </div>
+                <div>
+                    <label for="isen">
+                        <span class="material-symbols-outlined">vpn_key</span>
+                    </label>
+                    <input type="password" name="sen" id="isen" required autocomplete="new-password" minlength="8" maxlength="18" placeholder="Exemplo123!" pattern="^([A-Z]{1})([a-zA-Z0-9]+)([^a-zA-Z0-9])$">
+                </div>
+                <div>
+                    <input type="submit" value="Criar">
+                </div>
+            </form>
+            <p>Já tem uma conta? <a href="index.html">Acesse agora mesmo!</a></p>
+        </section>
+    </main>
+    <footer>
+        <p>Criado por <a href="https://github.com/wyeels">Wesley Xavier</a></p>
+    </footer>
+
+    <script> 
+    function salvarLogin(usuario, senha) {
+        const senhaCriptografada = CryptoJS.AES.encrypt(senha, 'senhaLog').toString()
+        const usuarioCriptografado = CryptoJS.AES.encrypt(usuario, 'usuarioLog').toString()
+        localStorage.setItem('senha', senhaCriptografada)
+        localStorage.setItem('usuario', usuarioCriptografado)
+        
+}
+
+        const cadas = document.getElementById('cadas')
+        cadas.addEventListener('submit', function(event) {
+            event.preventDefault()  
+
+            const usuario = document.getElementById('iusu').value
+            const senha = document.getElementById('isen').value
+
+            salvarLogin(usuario, senha)
+            
+            alert('Cadastro realizado com sucesso!')
+
+            window.location.href = 'index.html'
+        })
+    </script>
+</body>
+</html>

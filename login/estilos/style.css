@@ -1,0 +1,147 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+
+:root {
+    --cor-fundo: #212121;
+    --cor-caixas: #303030;
+    --cor-bordaeicon: #00ffff4d;
+    --cor-destaqueselinks: #10B981;
+    --cor-botao: #3B82F6;
+    --cor-texto: #ffffffc2;
+
+    --fonte-montserrat: "Montserrat", cursive, serif;
+    --fonte-roboto: "Roboto", Arial, sans-serif;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--cor-fundo);
+    font-family: var(--fonte-montserrat);
+}
+
+main {
+    height: 90vh;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+main > section {
+    flex: 0 1 280px;
+    height: 420px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: var(--cor-caixas);
+    padding: 6px;
+    box-shadow: 0px 0px 4px var(--cor-bordaeicon);
+}
+
+main > section#iimg {
+    display: none;
+}
+
+main > section > h1 {
+    font-family: var(--fonte-roboto);
+    color: var(--cor-texto);
+    margin: auto;
+    padding: 15px;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+main > section > p {
+    color: var(--cor-texto);
+    text-indent: 8px;
+    padding: 6px;
+    margin: 6px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+main > section > form {
+    height: 200px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    align-content: center;
+}
+
+main > section > form > div > label > span {
+    padding: 6px;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+
+main > section > form > div{
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+main > section > form > div > input[type = email], main > section > form > div > input[type = password] {
+    flex: 1 1 200px;
+    height: 38px;
+    margin-right: 6px;
+    padding: 5px;
+    border-radius: 6px;
+    border: none;
+    font-family: var(--fonte-roboto);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: var(--cor-texto);
+}
+
+main > section > form > div > input[type = email]:focus, main > section > form > div > input[type = password]:focus {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
+main > section > form > div > input[type = submit] {
+    flex: 1 1 200px;
+    height: 35px;
+    margin: 8px;
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+main > section > form > div > input[type = submit]:hover {
+    background-color: var(--cor-botao);
+    color: var(--cor-texto);
+    box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.8);
+    transform: scale(1.04);
+    transition: all 1s ease;
+}
+
+main > section > p > a {
+    text-decoration: none;
+    color: var(--cor-destaqueselinks);
+}
+
+main > section > p > a:hover {
+    color: var(--cor-botao);
+}
+
+footer {
+    color: var(--cor-texto);
+    font-size: .8em;
+    text-align: center;
+}
+
+footer > p > a {
+    color: #10B981;
+    text-decoration: none;
+}
+
+footer > p > a:hover {
+    color: var(--cor-botao);
+}

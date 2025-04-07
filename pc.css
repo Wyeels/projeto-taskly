@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+* {
+    transition: all .5s ease;
+}
+
+header > section#sec1 > span {
+    display: none;
+}
+
+header > section {
+    width: 50%;
+}
+
+header > section > div {
+    width: 30%;
+    height: max-content;
+    display: block;
+    columns: 2;
+}
+
+header > section > div > a {
+    padding: 6px;
+    margin: 8px;
+    display: inline;
+    margin-bottom: 20px;
+}
+
+@media screen and (min-width: 1000px){
+    header > section > div {
+        columns: 1;
+    }
+}

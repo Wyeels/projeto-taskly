@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taskly</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <link rel="stylesheet" href="celular.css" media="screen">
+    <link rel="stylesheet" href="pc.css" media="screen and (min-width: 800px)">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@1 "rel="stylesheet" />
+    <link rel="shortcut icon" href="imagens/lista.ico" type="image/x-icon">
+</head>
+<body onresize="verificarTamanho()">
+    <header>
+        <section id="sec1">
+            <span class="material-symbols-outlined">menu</span>
+            <div>
+                <a href="index.html">Inicio</a>
+                <a href="#">Suporte</a>
+                <a href="#">Reclamações</a>
+                <a href="creditos.html">Créditos</a>
+                <a href="#">Saiba Mais</a>
+            </div>
+        </section>
+        <img src="imagens/simbolo.png" alt="simbolo-inicial">
+        <section id="sec2">
+            <a href="login/cadastro.html"><span class="material-symbols-outlined">person</span></a>
+        </section>
+    </header>
+    <main>
+        
+
+        <section id="guardaritem">
+            <p>
+                <input type="text" class="itens" value="Ler um livro!">
+                <!-- <button>Completo</button> -->
+            </p>    
+            <p>
+                <input type="text" class="itens" value="Estudar!">
+                <!-- <button>Completo</button> -->
+            </p>    
+            <p>
+                <input type="text" class="itens" value="Assistir um filme!">
+                <!-- <button>Completo</button> -->
+            </p>    
+            <p>
+                <input type="text" class="itens" value="Dar comida pro cachorro!">
+                <!-- <button>Completo</button> -->
+            </p>    
+            <p>
+                <input type="text" class="itens" value="Testar a velocidade da internet!">
+                <!-- <button>Completo</button> -->
+            </p>  
+        </section>
+    </main>
+    <footer>
+        <p>Criado por <a href="https://github.com/wyeels" target="_blank">Wesley Xavier</a>.</p>
+        <p><a href="creditos.html">Créditos</a></p>
+    </footer>
+    
+    <script src="lista.js">
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="estilos/style.css">
+    <link rel="stylesheet" href="estilos/pc.css" media="screen and (min-width: 768px)">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@1" rel="stylesheet"/>
+</head>
+<body>
+    <main>
+        <section id="iimg">
+            <!-- Imagem de Fundo -->
+        </section>
+        <section>
+            <h1>Bem vindo!</h1>
+            <p>Você pode acessar sua conta logo abaixo e continuar suas atividades normalmente!</p>
+            <form id="log" method="get" autocomplete="on">
+                <div>
+                    <label for="iusu">
+                        <span class="material-symbols-outlined">email</span>
+                    </label>
+                    <input type="email" name="usu" id="iusu" required maxlength="30" minlength="10" placeholder="exemplo123@gmail.com" pattern="^([a-zA-Z0-9]+)@([a-zA-Z]+)(\.[a-zA-Z]{2,})$" autocomplete="email">
+                </div>
+                <div>
+                    <label for="isen">
+                        <span class="material-symbols-outlined">vpn_key</span>
+                    </label>
+                    <input type="password" name="sen" id="isen" minlength="8" maxlength="18" required placeholder="Exemplo123!" pattern="^([A-Z]{1})([a-zA-Z0-9]+)([^a-zA-Z0-9])$" autocomplete="current-password">
+                </div>
+                <div>
+                    <input type="submit" value="Login">
+                </div>
+            </form>
+            <p>
+                Não tem uma conta? <a href="cadastro.html">Crie agora mesmo!</a>
+            </p>
+        </section>
+    </main>
+    <footer>
+        <p>Criado por <a href="https://github.com/wyeels">Wesley Xavier</a></p>
+    </footer>
+
+    <script>
+        function recuperarLogin() {
+            const usuarioCriptografado = localStorage.getItem('usuario')
+            const senhaCriptografada = localStorage.getItem('senha')
+            
+            return { usuarioCriptografado, senhaCriptografada }
+        }
+
+        const log = document.getElementById('log')
+        log.addEventListener('submit', function(event) {
+            event.preventDefault()
+
+            const loginData = recuperarLogin()
+
+            const usuarioInput = document.getElementById('iusu').value
+            const senhaInput = document.getElementById('isen').value
+
+            const desBySen = CryptoJS.AES.decrypt(loginData.senhaCriptografada, 'senhaLog')
+            const desByUsu = CryptoJS.AES.decrypt(loginData.usuarioCriptografado, 'usuarioLog')
+            
+            const senhaDescriptografada = desBySen.toString(CryptoJS.enc.Utf8)
+            const usuarioDescriptografado = desByUsu.toString(CryptoJS.enc.Utf8)
+
+            if (loginData && usuarioDescriptografado === usuarioInput && senhaDescriptografada === senhaInput) {
+                window.location.href = '../index.html'
+            } else {
+                alert('Usuário ou senha inválidos. Tente novamente.')
+            }
+        })
+    </script>
+</body>
+</html>
